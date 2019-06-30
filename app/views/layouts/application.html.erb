@@ -10,6 +10,12 @@
   </head>
 
   <body>
+    <% if current_partner.present? %>
+      <%= link_to "logout", session_path(current_partner.id), method: :delete %>
+    <% else %>
+      <%= link_to "login", new_session_path %>
+    <% end %>
+    <br />
     <%= yield %>
   </body>
 </html>

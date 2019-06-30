@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :clients
   resources :sites
   resources :partners
   resources :sessions, only:[:new, :create, :destroy]

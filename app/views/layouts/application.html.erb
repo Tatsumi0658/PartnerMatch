@@ -12,8 +12,11 @@
   <body>
     <% if current_partner.present? %>
       <%= link_to "logout", session_path(current_partner.id), method: :delete %>
+    <% elsif current_client.present? %>
+      <%= link_to "logout", client_session_path(current_client.id), method: :delete %>
     <% else %>
-      <%= link_to "login", new_session_path %>
+      <%= link_to "パートナーさま", new_session_path %>
+      <%= link_to "クライアントさま", new_client_session_path %>
     <% end %>
     <br />
     <%= yield %>

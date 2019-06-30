@@ -1,0 +1,39 @@
+<%= form_with(model: site, local: true) do |form| %>
+  <% if site.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(site.errors.count, "error") %> prohibited this site from being saved:</h2>
+
+      <ul>
+      <% site.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :category %>
+    <%= form.check_box :category, {multiple: true}, 1, false %>通信
+    <%= form.check_box :category, {multiple: true}, 2, false %>人材
+    <%= form.check_box :category, {multiple: true}, 3, false %>キャッシング
+  </div>
+
+  <div class="field">
+    <%= form.label :keyword %>
+    <%= form.text_area :keyword %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
